@@ -1,0 +1,8 @@
+require 'HTTParty'
+require 'Nokogiri'
+
+def Scraper
+   url = "https:/blockwork.cc/" # URL we want to target
+   unparsed_page = HTTParty.get(url) # get request to that URL whick gives back the raw HTML
+   parsed_page = Nokogiri::HTML(unparsed_page)# nokogiri parses that HTML into a format from where we 
+end

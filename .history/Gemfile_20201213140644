@@ -1,0 +1,8 @@
+require 'HTTParty'
+require 'Nokogiri'
+
+def Scraper
+   url = "https:/blockwork.cc/"
+   unparsed_page = HTTParty.get(url) # this makes a gi
+   parsed_page =
+end

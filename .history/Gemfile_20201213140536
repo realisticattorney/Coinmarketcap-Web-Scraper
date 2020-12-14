@@ -1,0 +1,6 @@
+require 'HTTParty'
+require 'Nokogiri'
+
+def Scraper
+   url = "https:/blockwork.cc/"
+   
