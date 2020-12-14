@@ -1,3 +1,0 @@
-require 'HTTParty'
-require 'Nokogiri'
-
