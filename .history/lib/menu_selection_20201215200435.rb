@@ -27,3 +27,4 @@ class MenuSelection
     AssetScraper.new(url, @data_type.to_s)
   end
 end
+# rubocop:enable Metrics/MethodLength
