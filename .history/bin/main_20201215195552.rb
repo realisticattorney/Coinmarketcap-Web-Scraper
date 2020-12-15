@@ -6,6 +6,7 @@ require_relative '../lib/menu_selection'
 require_relative '../lib/constants'
 
 class Main
+   
   def initialize
     @menu = MenuSelection.new
     welcome_message_board

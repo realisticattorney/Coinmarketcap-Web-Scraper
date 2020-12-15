@@ -1,9 +1,6 @@
-source "https://rubygems.org"  do
+# frozen_string_literal: true
 
-gem 'httparty'
-gem 'nokogiri'
-gem 'byebug'
+source 'https://rubygems.org' do
+  gem 'httparty'
+  gem 'nokogiri'
 end
-
-
-

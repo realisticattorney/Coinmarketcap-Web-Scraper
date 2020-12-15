@@ -1,5 +1,4 @@
 # rubocop:disable Metrics/MethodLength
-
 require_relative './constants'
 require_relative './asset_scraper'
 

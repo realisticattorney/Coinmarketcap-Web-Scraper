@@ -1,5 +1,5 @@
-# rubocop:disable Metrics/MethodLength
-
+# frozen_string_literal: true
+Metrics/MethodLength
 require_relative './constants'
 require_relative './asset_scraper'
 
@@ -29,4 +29,3 @@ class MenuSelection
     AssetScraper.new(url, @data_type.to_s)
   end
 end
-# rubocop:enable Metrics/MethodLength

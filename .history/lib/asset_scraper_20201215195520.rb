@@ -1,7 +1,7 @@
 require_relative './constants'
 require 'HTTParty'
 
-# rubocop:disable all
+# rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/AbcSize
 
 class AssetScraper
   def initialize(url, data_type)
@@ -62,4 +62,3 @@ class AssetScraper
     puts currencies.price
   end
 end
-# rubocop:enable all

@@ -62,4 +62,3 @@ class AssetScraper
     puts currencies.price
   end
 end
-# rubocop:enable all
