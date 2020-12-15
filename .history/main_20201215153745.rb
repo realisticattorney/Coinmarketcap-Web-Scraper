@@ -1,16 +1,46 @@
+#!/usr/bin/env ruby
+
 require 'HTTParty'
 require 'Nokogiri'
-require 'byebug'
+require 'json'
+require 'fileutils'
+require_relative './parser.rb'
 
+class Main
+   attr_accessor :url :p
+   def initialize
+      @menu = MenuSelection.new
+      welcome_message_board
+   end
+
+   private
+
+
+   def welcome_message_board
+      puts "\n\nWelcome to cryptocurriencies analytic tools\n\n"
+      options_menu
+      end
+
+   def options_menu
+      puts "\nPlase select one type of options:"
+      puts "\n\nPress 1 : Crypto"
+      puts "\nPress 2 : Derivatives"
+      puts "\nPress 3 : DeFi"
+      puts "\nPress 4 : Yield Farming"
+      option = 
+
+def parser
+   url = "https://coinmarketcap.com/" # URL we want to target
+   @unparsed_page = HTTParty.get(url) # get request to that URL whick gives back the raw HTML
+   @parsed_page = Nokogiri::HTML(unparsed_page)# nokogiri parses that HTML into a format from where we can extract data out of
+   scraper(unparsed_page, parse_page)
+end
 
 def scraper
-   url = "https://coinmarketcap.com/" # URL we want to target
-   unparsed_page = HTTParty.get(url) # get request to that URL whick gives back the raw HTML
-   parsed_page = Nokogiri::HTML(unparsed_page)# nokogiri parses that HTML into a format from where we can extract data out of
    currencies = Array.new
-   currencies_listing = parsed_page.css('tbody tr:not([class])')
+   currencies_listing = @parsed_page.css('tbody tr:not([class])')
    page = 1
-   per_page = parsed_page.css('tbody tr:not([class])').count
+   per_page = @parsed_page.css('tbody tr:not([class])').count
    total_currencies = parsed_page.css('div.sc-16r8icm-0.sc-8ccaqg-0.eEiCJF  p.sc-1eb5slv-0.kDEzev').text.split(" ")[-1]
    last_page = (total_currencies.to_f / (per_page.to_f - 1)).round
    while page <= 3
@@ -28,15 +58,13 @@ def scraper
          name: pagination_parsed_page.css('tbody tr td div.price___3rj7O a')[currency_index].attributes["href"].value
       }
       currencies << currency
-      # byebug
    end
    page += 1
 end
 puts currencies
-byebug
 end
-
-scraper
+end
+Main.new
 
 
 # prices = parsed_page.css('tbody tr a @href') (value= currencies/name of currency)
