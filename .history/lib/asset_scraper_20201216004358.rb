@@ -41,10 +41,11 @@ class AssetScraper
             name = name.split('/')[-2].upcase
             currency = [name.to_s, price.to_s]
         when 'Derivatives'
-         price = pagination_parsed_page.css('tbody tr td div.price___3rj7O')[currency_index].text
-         name = pagination_parsed_page.css('tbody tr td div.price___3rj7O a')[currency_index].attributes['href'].value
-         name = name.split('/')[-2].upcase
-         currency = [name.to_s, price.to_s]
+          currency = {
+            # price: pagination_parsed_page.css('tbody tr td div.price___3rj7O')[currency_index].text
+            # name: pagination_parsed_page.css('tbody tr td div.price___3rj7O div')[currency_index].text
+          }
+          puts currency
         when 'DeFi'
           currency = {
             # price: pagination_parsed_page.css('tbody tr td div.price___3rj7O a.cmc-link')[currency_index].text
@@ -57,7 +58,7 @@ class AssetScraper
       end
       page += 1
     end
-    currencies.each{|name, price| puts "\n#{name} : #{price} \n" }
+    puts currencies.each{|name, price| puts "\n#{name} : #{price} \" }
   end
 end
 # rubocop:enable all

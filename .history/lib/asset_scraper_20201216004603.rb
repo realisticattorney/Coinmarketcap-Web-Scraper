@@ -41,7 +41,7 @@ class AssetScraper
             name = name.split('/')[-2].upcase
             currency = [name.to_s, price.to_s]
         when 'Derivatives'
-         price = pagination_parsed_page.css('tbody tr td div.price___3rj7O')[currency_index].text
+         price = pagination_parsed_page.css('tbody tr td div.price___3rj7O a.cmc-link')[currency_index].text
          name = pagination_parsed_page.css('tbody tr td div.price___3rj7O a')[currency_index].attributes['href'].value
          name = name.split('/')[-2].upcase
          currency = [name.to_s, price.to_s]

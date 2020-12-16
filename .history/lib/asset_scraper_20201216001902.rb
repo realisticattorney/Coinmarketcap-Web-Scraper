@@ -24,7 +24,7 @@ class AssetScraper
     puts per_page
     puts last_page
     last_page = 1 if last_page.zero?
-    while page <= last_page && page <= 1
+    while page <= last_page && page <= 3
       pagination_url = "#{@url}#{page.to_i}/"
       puts "Page: #{page}"
       puts pagination_url
@@ -36,18 +36,19 @@ class AssetScraper
       pagination_currencies_listing.count.times do |currency_index|
         case @data_type.to_s
         when 'Crypto'
-            price = pagination_parsed_page.css('tbody tr td div.price___3rj7O a.cmc-link')[currency_index].text
-            name = pagination_parsed_page.css('tbody tr td div.price___3rj7O a')[currency_index].attributes['href'].value
-            name = name.split('/')[-2].upcase
-            currency = [name.to_s, price.to_s]
+          currency = {
+            price: pagination_parsed_page.css('tbody tr td div.price___3rj7O a.cmc-link')[currency_index].text,
+            name: pagination_parsed_page.css('tbody tr td div.price___3rj7O a')[currency_index].attributes['href'].value
+          }
         when 'Derivatives'
-         price = pagination_parsed_page.css('tbody tr td div.price___3rj7O')[currency_index].text
-         name = pagination_parsed_page.css('tbody tr td div.price___3rj7O a')[currency_index].attributes['href'].value
-         name = name.split('/')[-2].upcase
-         currency = [name.to_s, price.to_s]
+          currency = {
+            price: pagination_parsed_page.css('tbody tr td div.price___3rj7O')[currency_index].text
+            # name: pagination_parsed_page.css('tbody tr td div.price___3rj7O div')[currency_index].text
+          }
+          puts currency
         when 'DeFi'
           currency = {
-            # price: pagination_parsed_page.css('tbody tr td div.price___3rj7O a.cmc-link')[currency_index].text
+            price: pagination_parsed_page.css('tbody tr td div.price___3rj7O a.cmc-link')[currency_index].text
             # name: pagination_parsed_page.css('tbody tr td div.price___3rj7O a')[currency_index].attributes["href"].value
           }
         else
@@ -57,7 +58,8 @@ class AssetScraper
       end
       page += 1
     end
-    currencies.each{|name, price| puts "\n#{name} : #{price} \n" }
+    currencies[1]
+    puts currencies
   end
 end
 # rubocop:enable all
