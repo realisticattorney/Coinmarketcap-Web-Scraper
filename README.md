@@ -12,6 +12,7 @@ For this project I created a web scraper that returns a list of prices for diffe
 
 ## Getting Started
 
+![](C:\Users\Yerman\Desktop\capstoneprj\Coinmarketcap-Web-Scraper\gif\installguide.gif)
 - open CMD
 - Git clone `https://github.com/Coinmarketcap-Web-Scraper` 
 - Make sure Ruby is installed on your computer
@@ -21,6 +22,7 @@ For this project I created a web scraper that returns a list of prices for diffe
    gem install nokogiri
 
 - Then, to run the program type `ruby bin/main.rb`
+
 
 ## Author
 
