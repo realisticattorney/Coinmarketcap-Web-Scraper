@@ -1,6 +1,5 @@
 require_relative './constants'
-require 'httparty'
-require 'nokogiri'
+require 'HTTParty'
 
 # rubocop:disable all
 
@@ -60,7 +59,7 @@ class AssetScraper
       end
       page += 1
     end
-    puts currencies
+    puts currencies.price
   end
 end
 # rubocop:enable all

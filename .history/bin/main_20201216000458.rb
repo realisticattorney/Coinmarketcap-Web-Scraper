@@ -1,4 +1,4 @@
-require 'httparty'
+require 'hhtparty'
 require 'nokogiri'
 require_relative '../lib/menu_selection'
 require_relative '../lib/constants'
