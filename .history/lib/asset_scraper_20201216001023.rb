@@ -22,7 +22,6 @@ class AssetScraper
     last_page = (total_currencies.to_f / per_page.to_f).round
     puts total_currencies
     puts per_page
-    puts last_page
     last_page = 1 if last_page.zero?
     while page <= last_page && page <= 3
       pagination_url = "#{@url}#{page.to_i}/"
