@@ -1,4 +1,5 @@
-# rubocop: disable Layout/LineLength, Metrics/MethodLength
+# frozen_string_literal: true
+
 require_relative './constants'
 require 'httparty'
 require 'nokogiri'
@@ -55,4 +56,3 @@ class AssetScraper
     currencies.each { |name, price| puts "\n#{name} : #{price} \n" }
   end
 end
-# rubocop: enable Layout/LineLength, Metrics/MethodLength

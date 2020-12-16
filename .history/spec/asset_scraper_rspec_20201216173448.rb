@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../lib/asset_scraper'
 
 describe AssetScraper do

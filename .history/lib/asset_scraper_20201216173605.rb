@@ -55,4 +55,4 @@ class AssetScraper
     currencies.each { |name, price| puts "\n#{name} : #{price} \n" }
   end
 end
-# rubocop: enable Layout/LineLength, Metrics/MethodLength
+# rubocop: disable Layout/LineLength, Metrics/MethodLength
