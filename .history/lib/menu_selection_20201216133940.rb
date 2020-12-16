@@ -17,8 +17,6 @@ class MenuSelection
     end
     call_asset_type
   end
-  
-  private
 
   def call_asset_type
     url = ASSET_TYPE[@data_type]

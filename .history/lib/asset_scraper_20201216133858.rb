@@ -9,8 +9,6 @@ class AssetScraper
     scraper
   end
 
-  private
-  
   def scraper
     unparsed_page = HTTParty.get(@url)
     parsed_page = Nokogiri::HTML(unparsed_page.body)

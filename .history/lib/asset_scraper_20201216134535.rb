@@ -8,8 +8,6 @@ class AssetScraper
     @data_type = data_type
     scraper
   end
-
-  private
   
   def scraper
     unparsed_page = HTTParty.get(@url)
