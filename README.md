@@ -12,7 +12,7 @@ For this project I created a web scraper that returns a list of prices for diffe
 
 ## Getting Started
 
-![see installation animated tutorial](gif\installguide.gif)
+![see installation animated tutorial](./gif/installguide.gif)
 
 - open CMD
 - Git clone `https://github.com/Coinmarketcap-Web-Scraper` 
