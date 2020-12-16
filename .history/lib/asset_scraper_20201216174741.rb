@@ -26,7 +26,7 @@ class AssetScraper
   def scraper_iterator
     page = 1
     pagination_url = "#{@url}#{page.to_i}/"
-    pagination_unparsed_page = HTTParty.get(pagination_url)
+    pagination_unparsed_page = HTTParty.get(pagination_url) 
     pagination_parsed_page = Nokogiri::HTML(pagination_unparsed_page.body)
     pagination_currencies_listing = pagination_parsed_page.css('tbody tr:not([class])')
     iterator(pagination_parsed_page, pagination_currencies_listing)
