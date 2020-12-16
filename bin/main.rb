@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'httparty'
 require 'nokogiri'
 require_relative '../lib/menu_selection'
@@ -18,10 +20,9 @@ class Main
 
   def options_menu
     puts "\nPlase select one type of options:"
-    puts "\n\nPress 1 : Crypto"
-    puts "\nPress 2 : Derivatives"
-    puts "\nPress 3 : DeFi"
-    option = option_validation((1..3), gets.chomp.to_i)
+    puts "\n\nPress 1 to Crypto"
+    puts "\nPress 2 to DeFi"
+    option = option_validation((1..2), gets.chomp.to_i)
     @asset_chosen = ASSET_TYPE.keys[option - 1]
     @menu.data_type = @asset_chosen
     @menu.data_type_options(option)
@@ -29,7 +30,7 @@ class Main
 
   def option_validation(range, input)
     while range.none?(input)
-      puts 'please enter a valid number between 1 & 4'
+      puts 'please enter a valid number between 1 & 3'
       break if range.any?(input = gets.chomp.to_i)
     end
     input

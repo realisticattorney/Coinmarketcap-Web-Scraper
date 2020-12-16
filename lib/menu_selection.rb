@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './constants'
 require_relative './asset_scraper'
 
@@ -11,10 +13,6 @@ class MenuSelection
     when 1
       @data_type = ASSET_TYPE.keys[sel_menu_option - 1]
     when 2
-      @data_type = ASSET_TYPE.keys[sel_menu_option - 1]
-    when 3
-      @data_type = ASSET_TYPE.keys[sel_menu_option - 1]
-    when 4
       @data_type = ASSET_TYPE.keys[sel_menu_option - 1]
     else
       return false
