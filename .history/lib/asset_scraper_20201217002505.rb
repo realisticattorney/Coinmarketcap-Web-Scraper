@@ -15,6 +15,7 @@ class AssetScraper
   def scraper
     unparsed_page = HTTParty.get(@url)
     parsed_page = Nokogiri::HTML(unparsed_page.body)
+    currencies_listing = parsed_page.css('tbody tr:not([class])')
     per_page = parsed_page.css('tbody tr:not([class])').count
     total_currencies = parsed_page.css('div.sc-16r8icm-0.sc-8ccaqg-0.eEiCJF  p.sc-1eb5slv-0.kDEzev').text.split(' ')[-1]
     last_page = (total_currencies.to_f / per_page).round
@@ -25,8 +26,7 @@ class AssetScraper
   def scraper_iterator
     page = 1
     pagination_url = "#{@url}#{page.to_i}/"
-    pagination_unparsed_page = HTTParty.get(@url)
-    pagination_unparsed_page = HTTParty.get(pagination_url) if @data_type == 'Crypto'
+    pagination_unparsed_page = HTTParty.get(pagination_url)
     pagination_parsed_page = Nokogiri::HTML(pagination_unparsed_page.body)
     pagination_currencies_listing = pagination_parsed_page.css('tbody tr:not([class])')
     iterator(pagination_parsed_page, pagination_currencies_listing)
@@ -56,7 +56,3 @@ class AssetScraper
   end
 end
 # rubocop: enable Layout/LineLength
-
-
-
-

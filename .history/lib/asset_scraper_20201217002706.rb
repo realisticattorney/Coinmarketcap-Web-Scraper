@@ -29,7 +29,7 @@ class AssetScraper
     pagination_unparsed_page = HTTParty.get(pagination_url) if @data_type == 'Crypto'
     pagination_parsed_page = Nokogiri::HTML(pagination_unparsed_page.body)
     pagination_currencies_listing = pagination_parsed_page.css('tbody tr:not([class])')
-    iterator(pagination_parsed_page, pagination_currencies_listing)
+   `` iterator(pagination_parsed_page, pagination_currencies_listing)
   end
 
   def iterator(pagination_parsed_page, pagination_currencies_listing)
